@@ -22,3 +22,23 @@ console.log(matilda, jonas);
 //satyam is an instance of Person
 console.log(satyam instanceof Person);
 // never create a method inside a constructor function
+
+console.log(Person.prototype);
+
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.birthyear);
+};
+
+satyam.calcAge();
+
+console.log(satyam.__proto__);
+console.log(satyam.__proto__ === Person.prototype);
+console.log(Person.prototype.isPrototypeOf(satyam));
+console.log(Person.prototype.isPrototypeOf(jonas));
+console.log(Person.prototype.isPrototypeOf(Person));
+//.prototypeoflinkedobjects
+
+Person.prototype.species = 'homo sapiens'; //not own property as declared using prototype but usable for all objects created using Person
+console.log(satyam.species, jonas.species);
+console.log(satyam.hasOwnProperty('firstname'));
+console.log(satyam.hasOwnProperty('species'));
