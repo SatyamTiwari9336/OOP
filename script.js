@@ -1,4 +1,5 @@
 'use strict';
+/*
 const Person = function (firstname, birthyear) {
   this.firstname = firstname;
   this.birthyear = birthyear;
@@ -42,3 +43,4 @@ Person.prototype.species = 'homo sapiens'; //not own property as declared using 
 console.log(satyam.species, jonas.species);
 console.log(satyam.hasOwnProperty('firstname'));
 console.log(satyam.hasOwnProperty('species'));
+*/
