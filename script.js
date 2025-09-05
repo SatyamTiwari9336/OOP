@@ -44,4 +44,10 @@ Person.prototype.species = 'homo sapiens'; //not own property as declared using 
 console.log(satyam.species, jonas.species);
 console.log(satyam.hasOwnProperty('firstname'));
 console.log(satyam.hasOwnProperty('species'));
-console.log(satyam.__proto__);
+console.log(satyam.__proto__); //person
+console.log(satyam.__proto__.__proto__); //object
+console.log(satyam.__proto__.__proto__.__proto__); //null
+console.dir(Person.prototype.constructor);
+
+const arr = [1, 2, 3, 4, 5];
+console.log(arr.__proto__); // all comes from Array prototype inbuilr in js
