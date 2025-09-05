@@ -49,5 +49,16 @@ console.log(satyam.__proto__.__proto__); //object
 console.log(satyam.__proto__.__proto__.__proto__); //null
 console.dir(Person.prototype.constructor);
 
-const arr = [1, 2, 3, 4, 5];
+const arr = [1, 2, 3, 3, 5, 2, 9, 2];
 console.log(arr.__proto__); // all comes from Array prototype inbuilr in js
+console.log(arr.__proto__ === Array.prototype); //true
+
+//adding new method to prototype property of Arrays in JS
+//not good for bigger projects
+Array.prototype.unique = function () {
+  return [...new Set(this)];
+};
+//now any array in this script can use this function
+console.log(arr.unique());
+
+console.dir(x => x + 1);
