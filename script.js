@@ -92,8 +92,8 @@ mercedes.acceleration();
 // const personcl = class {};
 //class declaration
 class personcl {
-  constructor(firstName, birthYear) {
-    this.firstName = firstName;
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
     this.birthYear = birthYear;
   }
 
@@ -104,18 +104,53 @@ class personcl {
   greet() {
     console.log(`hey ${this.firstName}`);
   }
+  get age() {
+    return 2037 - this.birthYear;
+  }
+
+  //setting a property that already exists
+  set fullName(name) {
+    console.log(name);
+    if (name.includes(' ')) this._fullName = name;
+    else alert('Not a full name  ');
+  }
+  get fullName() {
+    return this._fullName;
+  }
 }
 
-const jonas = new personcl('jonas', 1975);
+const jonas = new personcl('jonas smedmat', 1975);
+const walter = new personcl('walter white', 2001); //should always have space in calling the class made
+console.log(walter);
+
 console.log(jonas);
 // personcl.prototype.calcAge = function () {
 //   console.log(2037 - this.birthYear);
 // };
 
 jonas.greet();
+console.log(jonas.age); // for getter
 
-jonas.calcAge();
+jonas.calcAge(); //for metho0d
 
 //1. classes are not hoisted ...even when declared
 //2. classes are also first class citizens
 //3. classes are only executed in strict mode
+//getter and setter
+
+const accounts = {
+  owner: 'jonas',
+  movements: [20, 30, 40, 10],
+
+  get latest() {
+    return this.movements.slice(-1).pop();
+  },
+
+  set latest(mov) {
+    this.movements.push(mov);
+  },
+};
+
+console.log(accounts.latest);
+accounts.latest = 100;
+console.log(accounts.movements);
