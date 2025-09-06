@@ -120,7 +120,7 @@ class personcl {
 }
 
 const jonas = new personcl('jonas smedmat', 1975);
-const walter = new personcl('walter white', 2001); //should always have space in calling the class made
+const walter = new personcl('walter white', 2001); //should always have space in calling the class made here
 console.log(walter);
 
 console.log(jonas);
