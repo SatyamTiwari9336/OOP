@@ -88,7 +88,7 @@ mercedes.acceleration();
 */
 //es6 classes
 
-//class expresion
+//class expression
 // const personcl = class {};
 //class declaration
 class personcl {
@@ -108,7 +108,14 @@ class personcl {
 
 const jonas = new personcl('jonas', 1975);
 console.log(jonas);
+// personcl.prototype.calcAge = function () {
+//   console.log(2037 - this.birthYear);
+// };
 
 jonas.greet();
 
 jonas.calcAge();
+
+//1. classes are not hoisted ...even when declared
+//2. classes are also first class citizens
+//3. classes are only executed in strict mode
