@@ -62,7 +62,6 @@ Array.prototype.unique = function () {
 console.log(arr.unique());
 
 console.dir(x => x + 1);
-*/
 //challenge 1
 const car = function (make, speed) {
   this.make = make;
@@ -86,3 +85,30 @@ bmw.acceleration();
 mercedes.brake();
 mercedes.acceleration();
 mercedes.acceleration();
+*/
+//es6 classes
+
+//class expresion
+// const personcl = class {};
+//class declaration
+class personcl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+
+  greet() {
+    console.log(`hey ${this.firstName}`);
+  }
+}
+
+const jonas = new personcl('jonas', 1975);
+console.log(jonas);
+
+jonas.greet();
+
+jonas.calcAge();
