@@ -91,7 +91,6 @@ bmw.acceleration();
 mercedes.brake();
 mercedes.acceleration();
 mercedes.acceleration();
-*/
 //es6 classes
 
 //class expression
@@ -200,3 +199,34 @@ const sarah = Object.create(PersonProto);
 sarah.init('sarah', 1979);
 sarah.calcAge();
 console.log(sarah);
+*/
+class Carcl {
+  constructor(name, speed) {
+    this.name = name;
+    this.speed = speed;
+  }
+  brake() {
+    this.speed -= 5;
+    console.log(`the car is running at ${this.speed} mp/h`);
+  }
+  accelerate() {
+    this.speed += 10;
+    console.log(`the car is running at ${this.speed} mp/h`);
+  }
+  get speedUS() {
+    return this.speed / 1.6;
+  }
+  set speedUS(speed) {
+    this.speed = speed * 1.6;
+  }
+}
+
+const ford = new Carcl('ford', 100);
+console.log(ford);
+console.log(ford.speedUS); //getter
+ford.speedUS = 120; //setter
+console.log(ford);
+ford.brake();
+ford.brake();
+ford.brake();
+console.log(ford);
