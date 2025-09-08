@@ -68,6 +68,7 @@ Array.prototype.unique = function () {
 console.log(arr.unique());
 
 console.dir(x => x + 1);
+/////////////////////////////////////////////////////////////////
 //challenge 1
 const car = function (make, speed) {
   this.make = make;
@@ -201,7 +202,7 @@ sarah.calcAge();
 console.log(sarah);
 
 ////////////////////////////////////////
-//challenge 3
+//challenge 2
 class Carcl {
   constructor(name, speed) {
     this.name = name;
@@ -261,3 +262,11 @@ const mike = new Students('mike', 2020, 'CSE');
 
 mike.introduce();
 mike.calcAge(); // this works only because of Students.prototype = Object.create(Person.prototype);
+console.log(mike.__proto__);
+console.log(mike.__proto__.__proto__);
+console.log(mike instanceof Students);
+console.log(mike instanceof Person);
+console.log(mike instanceof Object);
+
+Students.prototype.Constructor = Students;
+console.dir(Students.prototype.Constructor);
