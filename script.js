@@ -199,7 +199,9 @@ const sarah = Object.create(PersonProto);
 sarah.init('sarah', 1979);
 sarah.calcAge();
 console.log(sarah);
-*/
+
+////////////////////////////////////////
+//challenge 3
 class Carcl {
   constructor(name, speed) {
     this.name = name;
@@ -230,3 +232,4 @@ ford.brake();
 ford.brake();
 ford.brake();
 console.log(ford);
+*/
