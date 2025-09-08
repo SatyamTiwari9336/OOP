@@ -31,6 +31,12 @@ Person.prototype.calcAge = function () {
   console.log(2037 - this.birthyear);
 };
 
+person.hey = function () {
+  console.log('hey there 👋');
+  console.log(this);
+};
+person.hey();
+
 satyam.calcAge();
 
 // console.log(satyam.__proto__);
@@ -102,7 +108,7 @@ class personcl {
   }
 
   greet() {
-    console.log(`hey ${this.firstName}`);
+    console.log(`hey ${this.fullName}`);
   }
   get age() {
     return 2037 - this.birthYear;
@@ -117,6 +123,10 @@ class personcl {
   get fullName() {
     return this._fullName;
   }
+
+  static hey() {
+    console.log('hey there 👋');
+  }
 }
 
 const jonas = new personcl('jonas smedmat', 1975);
@@ -127,8 +137,10 @@ console.log(jonas);
 // personcl.prototype.calcAge = function () {
 //   console.log(2037 - this.birthYear);
 // };
-
 jonas.greet();
+personcl.hey();
+// jonas.hey();//as hey() is static function it wont run
+
 console.log(jonas.age); // for getter
 
 jonas.calcAge(); //for metho0d
@@ -154,3 +166,12 @@ const accounts = {
 console.log(accounts.latest);
 accounts.latest = 100;
 console.log(accounts.movements);
+
+//Array.from()  coverts all the array like things to array
+const example = Array.from(document.querySelectorAll('h1'));
+console.log(example);
+
+//.from is static attached to Array namespace
+// [1, 2, 3, 4].from();
+
+console.log(Number.parseFloat(2.123));
