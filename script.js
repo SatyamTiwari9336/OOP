@@ -233,3 +233,5 @@ ford.brake();
 ford.brake();
 console.log(ford);
 */
+/////////////////////////////////////
+//classes inheritence : functions constructor
