@@ -235,6 +235,8 @@ ford.brake();
 console.log(ford);
 /////////////////////////////////////
 //classes inheritence : functions constructor
+
+
 const Person = function (firstName, birthYear) {
   this.firstName = firstName;
   this.birthYear = birthYear;
@@ -274,4 +276,36 @@ console.dir(Students.prototype.Constructor);
 ////////////////////////////////////////////////
 //Challenge - 3
 
-const car = function () {};
+const car = function (make, speed) {
+  this.make = make;
+  this.speed = speed;
+};
+car.prototype.caris = function () {
+  console.log(`the car is ${this.make} and drives at ${this.speed}`);
+};
+car.prototype.accelerate = function () {
+  this.speed += 20;
+};
+const EV = function (make, speed, Battery) {
+  car.call(this, make, speed);
+  this.Battery = Battery;
+};
+EV.prototype = Object.create(car.prototype);
+EV.prototype.chargeTo = function (chargeTo) {
+  this.Battery = chargeTo;
+};
+//example of polymorphism
+EV.prototype.accelerate = function () {
+  this.speed += 20;
+  this.Battery -= 1;
+  console.log(
+    `The car is moving at the speed of ${this.speed} an the battery is ${this.Battery}`
+  );
+};
+
+const EVcar = new EV('tata', 100, 72);
+console.log(EVcar);
+EVcar.accelerate();
+EVcar.chargeTo(100);
+console.log(EVcar);
+EVcar.caris();
