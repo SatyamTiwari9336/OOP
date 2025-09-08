@@ -271,7 +271,6 @@ console.log(mike instanceof Object);
 
 Students.prototype.Constructor = Students;
 console.dir(Students.prototype.Constructor);
-*/
 
 ////////////////////////////////////////////////
 //Challenge - 3
@@ -309,3 +308,26 @@ EVcar.accelerate();
 EVcar.chargeTo(100);
 console.log(EVcar);
 EVcar.caris();
+*/
+////////////////////////////////////////////////
+//inheritence  in es6 classes
+
+class car {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+}
+
+class Ev extends car {
+  constructor(make, speed, Battery) {
+    super(make, speed);
+    this.Battery = Battery;
+  }
+  introduce() {
+    console.log(`The car is ${this.make} and is cahrged ${this.Battery}`);
+  }
+}
+const newev = new Ev('Tesla', 200, 30);
+console.log(newev);
+newev.introduce();
