@@ -175,3 +175,18 @@ console.log(example);
 // [1, 2, 3, 4].from();
 
 console.log(Number.parseFloat(2.123));
+
+//.create for OOP in JS
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+};
+
+const steven = Object.create(PersonProto);
+console.log(steven);
+steven.name = 'steven';
+steven.birthYear = 2022;
+steven.calcAge();
+
+console.log(steven);
