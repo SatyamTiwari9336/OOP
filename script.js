@@ -283,7 +283,7 @@ car.prototype.caris = function () {
   console.log(`the car is ${this.make} and drives at ${this.speed}`);
 };
 car.prototype.accelerate = function () {
-  this.speed += 20;
+  this.speed += 10;
 };
 const EV = function (make, speed, Battery) {
   car.call(this, make, speed);
@@ -317,6 +317,9 @@ class car {
     this.make = make;
     this.speed = speed;
   }
+  accelerate() {
+    this.speed += 10;
+  }
 }
 
 class Ev extends car {
@@ -327,7 +330,12 @@ class Ev extends car {
   introduce() {
     console.log(`The car is ${this.make} and is cahrged ${this.Battery}`);
   }
+  accelerate() {
+    this.speed += 20;
+  }
 }
 const newev = new Ev('Tesla', 200, 30);
 console.log(newev);
 newev.introduce();
+newev.accelerate();
+console.log(newev); // speed is increased by 20 nd not 10 as child overrite parent methods
