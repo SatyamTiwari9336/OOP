@@ -233,7 +233,6 @@ ford.brake();
 ford.brake();
 ford.brake();
 console.log(ford);
-*/
 /////////////////////////////////////
 //classes inheritence : functions constructor
 const Person = function (firstName, birthYear) {
@@ -270,3 +269,9 @@ console.log(mike instanceof Object);
 
 Students.prototype.Constructor = Students;
 console.dir(Students.prototype.Constructor);
+*/
+
+////////////////////////////////////////////////
+//Challenge - 3
+
+const car = function () {};
