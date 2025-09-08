@@ -235,3 +235,29 @@ console.log(ford);
 */
 /////////////////////////////////////
 //classes inheritence : functions constructor
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.birthYear);
+};
+
+const Students = function (firstName, birthYear, course) {
+  Person.call(this, firstName, birthYear);
+  this.course = course;
+};
+// console.log(mike);
+//linking prototypes
+Students.prototype = Object.create(Person.prototype);
+Students.prototype.introduce = function () {
+  console.log(
+    `my name is ${this.firstName} and i am ${
+      2025 - this.birthYear
+    } years old and studying in ${this.course}`
+  );
+};
+const mike = new Students('mike', 2020, 'CSE');
+
+mike.introduce();
+mike.calcAge(); // this works only because of Students.prototype = Object.create(Person.prototype);
