@@ -31,12 +31,11 @@ Person.prototype.calcAge = function () {
   console.log(2037 - this.birthyear);
 };
 
-person.hey = function () {
+Person.hey = function () {
   console.log('hey there 👋');
   console.log(this);
 };
-person.hey();
-
+Person.hey();
 satyam.calcAge();
 
 // console.log(satyam.__proto__);
@@ -56,7 +55,7 @@ console.log(satyam.__proto__.__proto__.__proto__); //null
 console.dir(Person.prototype.constructor);
 
 const arr = [1, 2, 3, 3, 5, 2, 9, 2];
-console.log(arr.__proto__); // all comes from Array prototype inbuilr in js
+console.log(arr.__proto__); // all comes from Array prototype inbuilt in js
 console.log(arr.__proto__ === Array.prototype); //true
 
 //adding new method to prototype property of Arrays in JS
