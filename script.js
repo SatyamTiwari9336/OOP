@@ -364,7 +364,7 @@ const jay = Object.create(StudentProto);
 jay.init('jay', 2010, 'Civil Engineering');
 jay.introduce();
 jay.calcAge();
-*/
+
 ///////////////////////////////////////
 // class example using bankist accounts
 
@@ -409,3 +409,55 @@ console.log(acc1);
 acc1.requestLoan(1000);
 console.log(acc1);
 acc1.approveLoan(1000); //we can access this but it should be only accesesd by the request loan method this is why we need ENCAPSULATION!!!!.
+
+*/
+
+////////////////////////////////////////////////////////////
+//Encapsulation :  Private Class fields and Methods
+
+// 1. Public fields
+// 2. private fileds
+// 3. public methods
+// 4. private methods
+// Static versions of all these
+
+class Account {
+  locale = navigator.language; //public
+  Bank = 'BANKIST'; //public
+  #movements = []; //private
+  #pin; //private
+  //above fields are in every instance of this class
+
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.#pin = pin;
+    // this.locale = navigator.language;
+
+    console.log(`Thanks for creating an account ${owner}`);
+  }
+  //public interface (API)
+  deposit(val) {
+    this.#movements.push(val);
+  }
+  withdrawal(val) {
+    this.deposit(-val);
+  }
+
+  approveLoan(val) {
+    return true;
+  }
+  requestLoan(val) {
+    if (this.approveLoan(val)) {
+      this.deposit(val);
+      console.log('Loan Approved ');
+    }
+  }
+}
+
+const acc1 = new Account('jonas', 'EUR', 1111);
+console.log(acc1);
+acc1.deposit(200);
+acc1.withdrawal(100);
+console.log(acc1);
+// console.log(acc1.#movements); //this showws error as #movements  is private now
