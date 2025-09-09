@@ -337,7 +337,7 @@ const newev = new Ev('Tesla', 200, 30);
 console.log(newev);
 newev.introduce();
 newev.accelerate();
-console.log(newev); // speed is increased by 20 nd not 10 as child overrite parent methods
+console.log(newev); // speed is increased by 20 nd not 10 as child overwrite parent methods
 ////////////////////////////////////
 //inheritence between clsses using object.create
 const PersonProto = {
@@ -485,3 +485,56 @@ const movements1 = acc1
 console.log(acc1);
 
 console.log(movements1);
+//////////////////////////////////////////////////
+//challenge 4
+class Carcl {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+  caris() {
+    console.log(`the car is ${this.make} and drives at ${this.speed}`);
+  }
+  accelerate() {
+    this.speed += 10;
+    return this;
+  }
+  brake() {
+    this.speed -= 5;
+    return this;
+  }
+}
+class Evcl extends Carcl {
+  constructor(make, speed, Battery) {
+    super(make, speed);
+    this.Battery = Battery;
+  }
+  #chargeTo(val) {
+    this.Battery = val;
+  }
+  charging(val) {
+    this.#chargeTo(val);
+    return this;
+  }
+
+  accelerate() {
+    this.speed += 20;
+    this.Battery -= 1;
+    console.log(
+      `The car is moving at the speed of ${this.speed} an the battery is ${this.Battery}`
+    );
+    return this;
+  }
+}
+const Car1 = new Evcl('Tesla', 200, 98);
+console.log(Car1);
+Car1.charging(33);
+console.log(Car1);
+Car1.accelerate()
+  .brake()
+  .accelerate()
+  .accelerate()
+  .brake()
+  .charging(90)
+  .brake();
+console.log(Car1);
