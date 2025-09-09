@@ -439,9 +439,11 @@ class Account {
   //public interface (API)
   deposit(val) {
     this.#movements.push(val);
+    return this;
   }
   withdrawal(val) {
     this.deposit(-val);
+    return this;
   }
 
   #approveLoan(val) {
@@ -451,6 +453,7 @@ class Account {
     if (this.#approveLoan(val)) {
       this.deposit(val);
       console.log('Loan Approved ');
+      return this;
     }
   }
   getmovements() {
@@ -460,6 +463,9 @@ class Account {
 
 const acc1 = new Account('jonas', 'EUR', 1111);
 console.log(acc1);
+const acc2 = new Account('Satyam', 'RUP', 2323);
+console.log(acc2);
+
 acc1.deposit(200);
 acc1.withdrawal(100);
 console.log(acc1);
@@ -467,3 +473,15 @@ console.log(acc1);
 // acc1.#approveLoan(32); //private method
 acc1.requestLoan(120);
 console.log(acc1);
+/////////////////////////////
+
+//chaining of methods
+const movements1 = acc1
+  .deposit(50)
+  .deposit(60)
+  .withdrawal(70)
+  .requestLoan(80)
+  .getmovements(); //it gets things so it should be in end only
+console.log(acc1);
+
+console.log(movements1);
