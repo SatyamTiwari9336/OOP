@@ -444,15 +444,18 @@ class Account {
     this.deposit(-val);
   }
 
-  approveLoan(val) {
+  #approveLoan(val) {
     return true;
-  }
+  } //private method
   requestLoan(val) {
-    if (this.approveLoan(val)) {
+    if (this.#approveLoan(val)) {
       this.deposit(val);
       console.log('Loan Approved ');
     }
   }
+  getmovements() {
+    return this.#movements;
+  } //public methods
 }
 
 const acc1 = new Account('jonas', 'EUR', 1111);
@@ -461,3 +464,6 @@ acc1.deposit(200);
 acc1.withdrawal(100);
 console.log(acc1);
 // console.log(acc1.#movements); //this showws error as #movements  is private now
+// acc1.#approveLoan(32); //private method
+acc1.requestLoan(120);
+console.log(acc1);
