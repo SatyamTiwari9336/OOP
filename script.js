@@ -308,7 +308,6 @@ EVcar.accelerate();
 EVcar.chargeTo(100);
 console.log(EVcar);
 EVcar.caris();
-*/
 ////////////////////////////////////////////////
 //inheritence  in es6 classes
 
@@ -365,3 +364,48 @@ const jay = Object.create(StudentProto);
 jay.init('jay', 2010, 'Civil Engineering');
 jay.introduce();
 jay.calcAge();
+*/
+///////////////////////////////////////
+// class example using bankist accounts
+
+class Account {
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.pin = pin;
+    this.movements = [];
+    this.locale = navigator.language;
+
+    console.log(`Thanks for creating an account ${owner}`);
+  }
+  //public interface
+  deposit(val) {
+    this.movements.push(val);
+  }
+  withdrawal(val) {
+    this.deposit(-val);
+  }
+
+  approveLoan(val) {
+    return true;
+  }
+  requestLoan(val) {
+    if (this.approveLoan(val)) {
+      this.deposit(val);
+      console.log('Loan Approved ');
+    }
+  }
+}
+const acc1 = new Account('jonas', 'EUR', 1111);
+console.log(acc1);
+
+// acc1.movements.push(400);
+// console.log(acc1);
+// not a good idea to interact with properties directly , we should create methods to do this
+
+acc1.deposit(250);
+acc1.withdrawal(100); //abstraction example
+console.log(acc1);
+acc1.requestLoan(1000);
+console.log(acc1);
+acc1.approveLoan(1000); //we can access this but it should be only accesesd by the request loan method this is why we need ENCAPSULATION!!!!.
