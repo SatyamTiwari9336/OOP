@@ -248,9 +248,8 @@ const Students = function (firstName, birthYear, course) {
   Person.call(this, firstName, birthYear);
   this.course = course;
 };
-// console.log(mike);
 //linking prototypes
-Students.prototype = Object.create(Person.prototype);
+Students.prototype = Object.create(Person.prototype);//to connect child to paren t in constructionn functio classes **imp
 Students.prototype.introduce = function () {
   console.log(
     `my name is ${this.firstName} and i am ${
@@ -259,6 +258,8 @@ Students.prototype.introduce = function () {
   );
 };
 const mike = new Students('mike', 2020, 'CSE');
+// console.log(mike);
+
 
 mike.introduce();
 mike.calcAge(); // this works only because of Students.prototype = Object.create(Person.prototype);
