@@ -538,3 +538,4 @@ Car1.accelerate()
   .charging(90)
   .brake();
 console.log(Car1);
+//abc
