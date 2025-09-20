@@ -93,7 +93,6 @@ bmw.acceleration();
 mercedes.brake();
 mercedes.acceleration();
 mercedes.acceleration();
- */
 
 //es6 classes
 
@@ -206,7 +205,6 @@ const sarah = Object.create(PersonProto);
 sarah.init('sarah', 1979);
 sarah.calcAge();
 console.log(sarah);
-/*
 
 ////////////////////////////////////////
 //challenge 2
@@ -240,9 +238,10 @@ ford.brake();
 ford.brake();
 ford.brake();
 console.log(ford);
+ */
+
 /////////////////////////////////////
 //classes inheritence : functions constructor
-
 
 const Person = function (firstName, birthYear) {
   this.firstName = firstName;
@@ -257,7 +256,7 @@ const Students = function (firstName, birthYear, course) {
   this.course = course;
 };
 //linking prototypes
-Students.prototype = Object.create(Person.prototype);//to connect child to paren t in constructionn functio classes **imp
+Students.prototype = Object.create(Person.prototype); //to connect child to parent in construction function classes **imp
 Students.prototype.introduce = function () {
   console.log(
     `my name is ${this.firstName} and i am ${
@@ -267,7 +266,6 @@ Students.prototype.introduce = function () {
 };
 const mike = new Students('mike', 2020, 'CSE');
 // console.log(mike);
-
 
 mike.introduce();
 mike.calcAge(); // this works only because of Students.prototype = Object.create(Person.prototype);
@@ -279,6 +277,7 @@ console.log(mike instanceof Object);
 
 Students.prototype.Constructor = Students;
 console.dir(Students.prototype.Constructor);
+/*
 
 ////////////////////////////////////////////////
 //Challenge - 3
