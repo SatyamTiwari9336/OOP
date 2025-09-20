@@ -37,7 +37,7 @@ Person.hey = function () {
 };
 Person.hey();
 satyam.calcAge();
-
+// satyam.hey();
 // console.log(satyam.__proto__);
 console.log(satyam.__proto__ === Person.prototype);
 console.log(Person.prototype.isPrototypeOf(satyam));
@@ -67,6 +67,8 @@ Array.prototype.unique = function () {
 console.log(arr.unique());
 
 console.dir(x => x + 1);
+
+
 /////////////////////////////////////////////////////////////////
 //challenge 1
 const car = function (make, speed) {
@@ -91,11 +93,14 @@ bmw.acceleration();
 mercedes.brake();
 mercedes.acceleration();
 mercedes.acceleration();
+ */
+
 //es6 classes
 
 //class expression
 // const personcl = class {};
 //class declaration
+
 class personcl {
   constructor(fullName, birthYear) {
     this.fullName = fullName;
@@ -133,6 +138,8 @@ const walter = new personcl('walter white', 2001); //should always have space in
 console.log(walter);
 console.log(walter.fullName);
 console.log(jonas);
+// console.log(jonas.age);
+
 // personcl.prototype.calcAge = function () {
 //   console.log(2037 - this.birthYear);
 // };
@@ -199,6 +206,7 @@ const sarah = Object.create(PersonProto);
 sarah.init('sarah', 1979);
 sarah.calcAge();
 console.log(sarah);
+/*
 
 ////////////////////////////////////////
 //challenge 2
@@ -410,7 +418,6 @@ acc1.requestLoan(1000);
 console.log(acc1);
 acc1.approveLoan(1000); //we can access this but it should be only accesesd by the request loan method this is why we need ENCAPSULATION!!!!.
 
-*/
 
 ////////////////////////////////////////////////////////////
 //Encapsulation :  Private Class fields and Methods
@@ -539,3 +546,4 @@ Car1.accelerate()
   .brake();
 console.log(Car1);
 //abc
+*/
